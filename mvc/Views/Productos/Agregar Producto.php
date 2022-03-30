@@ -6,14 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Agregar Producto</title>
+	<?php
+        include 'views/cabecera.php';
+    ?>
 </head>
 <body>
+<?php
+    include 'views/menu.php';
+?>
 <div class="container-fluid">
+			<div class="row">
+                <h3>Nuevo editorial</h3>
+            </div>
     <div class="row flex-nowrap">
         <div class="col py-3">
-        	<div style="background-color:lightblue;padding:20px;">
-            	<h1 class="display-5">Agregar Producto</h1>
-        	</div>
+					<?php
+                        if(isset($errores)){
+                            if(count($errores)>0){
+                                echo "<div class='alert alert-danger'><ul>";
+                                foreach($errores as $error){
+                                    echo "<li>$error</li>";
+                                }
+                                echo "</ul></div>";
+                            }
+                        }
+                    ?>
         	<div style="margin:30px;">
         		<form method="POST" action="agregar.php">
 					<div class="row form-group">
