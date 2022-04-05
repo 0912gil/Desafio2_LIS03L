@@ -5,34 +5,31 @@ class ProductosModel extends ModelPDO{
     public function get($id=''){
         $query='';
         if($id==''){
-            //retornar todos los Libros
-            $query="SELECT * FROM Libros L INNER JOIN Autores A ON L.codigo_autor=A.codigo_autor
-                    INNER JOIN Editoriales E ON L.codigo_editorial=E.codigo_editorial
-                    INNER JOIN Generos G ON L.id_genero=G.id_genero";
+            //retornar todos los productos
+            $query="SELECT * FROM Producto P INNER JOIN Categoria C ON 
+            P.id_categoria=C.id_categoria";
             return $this->get_query($query);
         }
         else{
-            //retornar un libro por su llave primaria
-            $query="SELECT * FROM Libros L INNER JOIN Autores A ON L.codigo_autor=A.codigo_autor
-                    INNER JOIN Editoriales E ON L.codigo_editorial=E.codigo_editorial
-                    INNER JOIN Generos G ON L.id_genero=G.id_genero WHERE codigo_Libro=:codigo_libro";
-            return $this->get_query($query, [":codigo"=>$id]);
+            //retornar un producto por su llave primaria
+            $query="SELECT * FROM Producto WHERE id_producto=:id_producto";
+            return $this->get_query($query, [":id_producto"=>$id]);
         }
-        
     }
-    public function create($libro=array()){
-        $query="INSERT INTO ****";
-        return $this->set_query($query,$libro);
+    public function create($producto=array()){
+        $query="INSERT INTO Producto(id_producto,nombre,descripcion,imagen,id_categoria,precio,existencias,estado) 
+        VALUES (:id_producto, :nombre, :descripcion, :imagen, :id_categoria, :precio, :existencias, :estado)";
+        return $this->set_query($query,$producto);
     }
     public function delete($id=''){
-        $query="DELETE FROM **** WHERE codigo=:codigo";
-        return $this->set_query($query, [":codigo"=>$id]);
+        $query="DELETE FROM Producto WHERE id_producto=:id_producto";
+        return $this->set_query($query, [":id_producto"=>$id]);
     }
-    public function update($libro=array()){
-        extract($libro);
-        $query="UPDATE **** SET nombre=:nombre,descripcion=:descripcion,imagen=:imagen,categoria=:categoria,precio=:precio,
-        existencias=:existencias, WHERE codigo=:codigo";
-        return $this->set_query($query, $libro);
+    public function update($producto=array()){
+        extract($producto);
+        $query="UPDATE Producto SET id_producto=:id_producto,nombre=:nombre,descripcion=:descripcion,imagen=:imagen,
+        id_categoria=:id_categoria,precio=:precio,existencias=:existencias,estado=:estado WHERE id_producto=:id_producto";
+        return $this->set_query($query, $producto);
     }
 }
 ?>
