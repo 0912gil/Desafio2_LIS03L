@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administración</title>
     <?php
-        include 'views/cabecera.php';
+        include '../cabecera.php';
     ?>
 </head>
 <body>
 <?php
-        include 'views/menu.php';
+        include '../menu.php';
     ?>
 
 <div class="container">

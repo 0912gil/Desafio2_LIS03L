@@ -3,7 +3,7 @@ abstract class ModelPDO{
     private $db_host="localhost";
     private $db_user="root";
     private $db_pass="";
-    private $db_name="";
+    private $db_name="textil_bd";
     protected $conn;
 
     function __construct(){

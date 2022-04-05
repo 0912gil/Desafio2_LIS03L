@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesion</title>
     <?php
-        include 'views/cabecera.php';
+        include '../cabecera.php';
     ?>
 </head>
 <body>
