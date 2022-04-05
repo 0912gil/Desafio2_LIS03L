@@ -24,30 +24,29 @@
                 <table class="table table-striped table-bordered table-hover table-responsive table-condensed" id="tabla">
                     <thead>
                         <tr>
-                            <th>Codigo</th>
+                            <th>Id</th>
                             <th style="width: 25%">Nombre</th>
-                            <th>Existencias</th>
+                            <th>Descripcion</th>
+                            <th>Imagen</th>
+                            <th>Categoria</th>
                             <th>Precio</th>
-                            <th>Editorial</th>
-                            <th>Autor</th>
-                            <th>Genero</th>
-                            <th>Operaciones</th>
+                            <th>Existencias</th>
                         </tr>
                     </thead>
                     <tbody>     
                     <?php
 
-                    foreach($libros as $libro){
-                        $codigo=$libro['codigo_libro'];
+                    foreach($producto as $product){
+                        $cod=$product['codigo_libro'];
                     ?>
                             <tr>
-                                <td><?=$libro['codigo_libro']?></td>
-                                <td><?=$libro['nombre_libro']?></td>
-                                <td><?=$libro['existencias']?></td>
-                                <td><?=$libro['precio']?></td>
-                                <td><?=$libro['nombre_editorial']?></td>
-                                <td><?=$libro['nombre_autor']?></td>
-                                <td><?=$libro['nombre_genero']?></td>
+                                <td><?=$product['id_producto']?></td>
+                                <td><?=$product['nomre']?></td>
+                                <td><?=$product['descripcion']?></td>
+                                <td><?=$product['imagen']?></td>
+                                <td><?=$product['id_categoria']?></td>
+                                <td><?=$product['precio']?></td>
+                                <td><?=$product['existencias']?></td>
                                 <td>
                                     <a data-toggle="tooltip" title="Detalles"  class="btn btn-default btn-circle" href="javascript:void(0)" onclick="detalles('<?=$codigo?>')"><span class="glyphicon glyphicon-book"></span></a>
                                     <a title="Editar" class="btn btn-primary btn-circle" href="#"><span class="glyphicon glyphicon-edit"></span></a>
@@ -77,12 +76,12 @@
             </div>
             <div class="modal-body form">
                 <ul class="list-group">
-                    <li class="list-group-item"><b>Nombre del libro: </b> <span id="nombre"></span></li>
-                    <li class="list-group-item"> <b>Precio: </b> $<span id="precio"></span></li>
+                    <li class="list-group-item"><b>Nombre del producto: </b> <span id="nombre"></span></li>
+                    <li class="list-group-item"> <b>Descripción: </b> $<span id="descripcion"></span></li>
+                    <li class="list-group-item"> <b>Imagen: </b> <span id="imagen"></span></li>
+                    <li class="list-group-item"> <b>Categoria: </b> <span id="id_categoria"></span></li>
+                    <li class="list-group-item"> <b>Precio: </b> <span id="precio"></span></li>
                     <li class="list-group-item"> <b>Existencias: </b> <span id="existencias"></span></li>
-                    <li class="list-group-item"> <b>Autor: </b> <span id="autor"></span></li>
-                    <li class="list-group-item"> <b>Editorial: </b> <span id="editorial"></span></li>
-                    <li class="list-group-item"> <b>Genero: </b> <span id="genero"></span></li>
                 </ul>
                 
             </div>
@@ -101,18 +100,18 @@
     
     function detalles(id){
         $.ajax({
-            url:"<?=PATH?>/Libros/details/"+id,
+            url:"<?=PATH?>/Productos/details/"+id,
             type:"GET",
             dataType:"JSON",
             success:function(datos){
-                $('#nombre').text(datos.nombre_libro);
+                $('#nombre').text(datos.nombre);
+                $('#descripcion').text(datos.descripcion);
+                $('#imagen').text(datos.imagen);
+                $('#id_categoria').text(datos.id_categoria);
                 $('#precio').text(datos.precio);
                 $('#existencias').text(datos.existencias);
-                $('#autor').text(datos.nombre_autor);
-                $('#editorial').text(datos.nombre_editorial);
-                $('#genero').text(datos.nombre_genero);
                 $('#modal').modal('show');
-                $('.titulo-modal').text(datos.nombre_libro);
+                $('.titulo-modal').text(datos.nombre);
             }
         })
     }
