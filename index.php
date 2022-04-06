@@ -29,4 +29,7 @@
 
     // Llama la accion
     call_user_func( array( $controller, $accion ) );
-  }
+  }?>
+  <a href="login.php" class="float">
+  <i class="fa fa-user my-float"></i>
+  </a>

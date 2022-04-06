@@ -13,7 +13,7 @@
 				                <p class="footer-links">
 					                <a href="index.php">Inicio</a>
 				                </p>
-				                <p>textil &copy; 2022</p>
+				                <p>TextilExport Desafio 2 LIS03L &copy; 2022</p>
 			                </div>
 		                </footer>
                 </div>
