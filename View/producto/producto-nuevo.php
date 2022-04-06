@@ -2,7 +2,7 @@
 <h1 class="page-header">
     Nuevo Registro
 </h1>
-
+<?php require_once '../../Controller/validaciones.php'; ?>
 <ol class="breadcrumb">
   <li><a href="?c=producto">Productos</a></li>
   <li class="active">Nuevo Registro</li>

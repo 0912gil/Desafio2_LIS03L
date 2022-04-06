@@ -6,6 +6,7 @@
     }
     else{
         header('Location: login.php?failed=1');
+    }
 ?>
 <div class="well well-sm text-right">
     
