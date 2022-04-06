@@ -7,13 +7,14 @@ class ProductosController extends Controller{
     private $model;
 
     function __construct(){
-        if(isset($_SESSION['login_data'])){
+        $this->model= new ProductosModel();
+        /*if(isset($_SESSION['login_data'])){
             header('location' . PATH . '/Usuarios/login');
         }
         if($_SESSION['login_data']['id_tipo_usuario']!=1){
             header('location' .PATH.'/Productos/index');
         }
-        $this->model=new ProductosModel();
+        $this->model=new ProductosModel();*/
     }
 
     public function index(){
@@ -84,14 +85,14 @@ class ProductosController extends Controller{
                 array_push($errores, "Debes ingresar el estado del producto del producto");
             }
 
-            $productos['id_producto']=$id_producto;
-            $productos['nombre']=$nombre;
-            $productos['descripcion']=$descripcion;
-            $productos['imagen']=$imagen;
-            $productos['id_categoria']=$id_categoria;
-            $productos['precio']=$precio;
-            $productos['existencias']=$existencias;
-            $productos['estado']=$estado;
+            $producto['id_producto']=$id_producto;
+            $producto['nombre']=$nombre;
+            $producto['descripcion']=$descripcion;
+            $producto['imagen']=$imagen;
+            $producto['id_categoria']=$id_categoria;
+            $producto['precio']=$precio;
+            $producto['existencias']=$existencias;
+            $producto['estado']=$estado;
             
            
             if(count($errores)>0){
@@ -105,13 +106,13 @@ class ProductosController extends Controller{
 
             }
             else{
-                if($this->model->create($productos)>0){
+                if($this->model->create($producto)>0){
                 header('location:'.PATH.'/Productos/index');
                 }
                 else{
                     array_push($errores, "YA existe un producto con este codigo");
                     $viewBag['errores']=$errores;
-                    $viewBag['productos']=$productos;
+                    $viewBag['producto']=$producto;
                     $this->render("new.php",$viewBag);
                 }
             }

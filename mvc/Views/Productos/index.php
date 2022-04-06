@@ -48,22 +48,23 @@
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($producto  as $productos) {
-                                        
+                    foreach ($productos as $producto ){
+                            $codigo=$producto['id_poducto'];
                             ?>
                             <tr>
-                                <td><?=$productos['id_producto']?></td>
-                                <td><?=$productos['nombre']?></td>
-                                <td><?=$productos['descripcion']?></td>
-                                <td><img src="img/<?=$productos['imagen']?>" alt="" style="margin-right:30px;max-width:100%;"></td>
+                                <td><?=$producto['id_producto']?></td>
+                                <td><?=$producto['nombre']?></td>
+                                <td><?=$producto['descripcion']?></td>
+                                <td><img src="img/<?=$producto['img']?>" alt="" style="margin-right:30px;max-width:100%;"></td>
+                                <td><?=$producto['categoria']?></td>
+                                <td><?=$producto['precio']?></td>
+                                <td><?=$producto['existencias']?></td>
                                 <td>
                                     <br>
                                     <a href="#create" data-toggle="modal" class="btn btn-success">Editar</a><br><br>
-                                    <a href="#delete_<?=$row->codigo?>" data-toggle="modal" class="btn btn-danger">Eliminar</a><br><br>
+                                    <a href="#delete_<?=$producto['codigo']?>" data-toggle="modal" class="btn btn-danger">Eliminar</a><br><br>
                                 </td>
                             </tr>
-                            <?php include('borrar_producto.php');?>
-                            <?php include('editar_producto.php');?>
                     <?php
                     }
                     ?>
