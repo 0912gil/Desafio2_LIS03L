@@ -1,13 +1,6 @@
 <img src="assets/img/logo.png">
 <h1 class="page-header">Producto </h1>
-<?php
-    if(($_POST['user']!=""&&$_POST['user']=="admin" &&$_POST['pass']!="" && $_POST['pass']=="textil123")||$_GET['exito']==1){
-        
-    }
-    else{
-        header('Location: login.php?failed=1');
-    }
-?>
+
 <div class="well well-sm text-right">
     
     <a class="btn btn-primary" href="?c=producto&a=Nuevo">Nuevo Producto</a>
