@@ -1,7 +1,7 @@
 <?php
 define('BASEPATH', true);
 include_once 'core/Routing.php';
-include_once 'core/config.php';
+//include_once 'core/config.php';
 include_once 'Controllers/ProductosController.php';
 include_once 'Controllers/UsuariosController.php';
 

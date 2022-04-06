@@ -20,7 +20,7 @@
 </style>
 </head>
 <body>
-/*
+
 <?php
     //if(($_POST['user']!=""&&$_POST['user']=="admin" &&$_POST['pass']!="" && $_POST['pass']=="textil123")||$_GET['exito']==1){
         
@@ -34,7 +34,7 @@
     <h1 class="page-header text-center">Ingresar Productos</h1>
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <a href="#addnew" class="btn btn-primary" data-toggle="modal"><span class="glyphicon glyphicon-plus"></span>Agregar Producto</a>
+            <a href="create" class="btn btn-primary" data-toggle="modal"><span class="glyphicon glyphicon-plus"></span>Agregar Producto</a>
             
             <table class="table table-bordered table-striped" style="margin-top:20px;">
                 <thead>
@@ -48,26 +48,26 @@
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($productos as $producto ){
-                            $codigo=$producto['id_poducto'];
-                            ?>
-                            <tr>
-                                <td><?=$producto['id_producto']?></td>
-                                <td><?=$producto['nombre']?></td>
-                                <td><?=$producto['descripcion']?></td>
-                                <td><img src="img/<?=$producto['img']?>" alt="" style="margin-right:30px;max-width:100%;"></td>
-                                <td><?=$producto['categoria']?></td>
-                                <td><?=$producto['precio']?></td>
-                                <td><?=$producto['existencias']?></td>
-                                <td>
-                                    <br>
-                                    <a href="#create" data-toggle="modal" class="btn btn-success">Editar</a><br><br>
-                                    <a href="#delete_<?=$producto['codigo']?>" data-toggle="modal" class="btn btn-danger">Eliminar</a><br><br>
-                                </td>
-                            </tr>
-                    <?php
-                    }
-                    ?>
+                   foreach($productos as $producto){
+                    $id=$producto['id_producto'];
+                ?>
+                        <tr>
+                            <td><?=$producto['id_producto']?></td>
+                            <td><?=$producto['nombre']?></td>
+                            <td><?=$producto['descripcion']?></td>
+                            <td><?=$producto['imagen']?></td>
+                            <td><?=$producto['precio']?></td>
+                            <td><?=$producto['existencias']?></td>
+                            <td><?=$producto['estado']?></td>
+                            <td>
+                                <a data-toggle="tooltip" title="Detalles"  class="btn btn-default btn-circle" href="javascript:void(0)" onclick="detalles('<?=$id?>')"><span class="glyphicon glyphicon-book"></span></a>
+                                <a title="Editar" class="btn btn-primary btn-circle" href="#"><span class="glyphicon glyphicon-edit"></span></a>
+                                <a title="Eliminar"  class="btn btn-danger btn-circle" href="delete/<?=$producto['id_producto']?>"><span class="glyphicon glyphicon-trash"></span></a>
+                            </td>
+                        </tr>
+                        <?php
+                }
+                ?>
                 </tbody>
             </table>
         </div>

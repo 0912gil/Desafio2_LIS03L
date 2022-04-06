@@ -1,6 +1,6 @@
 <?php
-require_once 'ModelPDO.php';
-class UsuariosModel extends ModelPDO{
+require_once 'Model.php';
+class UsuariosModel extends Model{
 
     public function validateUser($username,$pass){
         $query="SELECT usuario, id_tipo_usuario, activo FROM usuarios WHERE usuario=:usuario AND password=SHA2(:clave, 256)";

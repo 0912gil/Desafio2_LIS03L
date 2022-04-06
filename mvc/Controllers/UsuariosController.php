@@ -1,8 +1,7 @@
 <?php
-//require_once '/Model/autoresModel.php';
 require_once 'Model/UsuariosModel.php';
 require_once 'Controller.php';
-require_once 'core/validaciones.php';
+//require_once 'core/validaciones.php';
 class UsuariosController extends Controller{
     private $model;
 
