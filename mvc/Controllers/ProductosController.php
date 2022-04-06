@@ -1,4 +1,5 @@
 <?php
+require_once 'Model/ProductosModel.php';
 require_once 'Model/CategoriasModel.php';
 require_once 'Controller.php';
 require_once 'core/validaciones.php';

@@ -1,6 +1,6 @@
 <?php
-require_once 'ModelPDO.php';
-class CategoriasModel extends ModelPDO{
+require_once 'Model.php';
+class CategoriasModel extends Model{
 
     public function get($id=''){
         $query='';
