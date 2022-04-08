@@ -7,6 +7,7 @@
             <th style="width:180px;">Codigo Producto</th>
             <th style="width:120px;">Nombre</th>
             <th style="width:120px;">Descripcion</th>
+            <th style="width:120px;">Imagen</th>
             <th style="width:120px;">Precio</th>
             <th style="width:120px;">Existencias</th>
         </tr>
@@ -17,10 +18,11 @@
             <td><?php echo $r->id_producto; ?></td>
             <td><?php echo $r->nombre; ?></td>
             <td><?php echo $r->descripcion; ?></td>
+            <td><img src="img/<?php echo $r->imagen; ?>" alt="" style="margin-right:30px;max-width:100%;"></td>
             <td><?php echo $r->precio; ?></td>
             <td><?php echo $r->existencias; ?></td>
             <td>
-                <a href="?c=producto&a=Crud&id_producto=<?php echo $r->id_producto; ?>">Comprar</a>
+                <a href="?c=producto&a=Crud&id_producto=<?php echo $r->id_producto; ?>" >Comprar</a>
             </td>
         </tr>
     <?php endforeach; ?>

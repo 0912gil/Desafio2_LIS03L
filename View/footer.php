@@ -2,20 +2,9 @@
                 <div class="col-xs-12">
                     <hr />
 
-                    <footer class="footer-distributed">
-
-			                <div class="footer-right">
-				                <a href="https://facebook.com/UDBelsalvador"><i class="fa fa-facebook"></i></a>
-				                
-  			              </div>
-
-			                <div class="footer-left">
-				                <p class="footer-links">
-					                <a href="index.php">Inicio</a>
-				                </p>
-				                <p>textil &copy; 2022</p>
-			                </div>
-		                </footer>
+                    <footer style="background-color: rgba(0, 0, 0, 0.05); padding: 1.5em 0px; font-size:1.1em;" class="text-center">
+		                <b>TextilExport</b> - Universidad Don Bosco - Lenguajes Interpretados en el Servidor 03L - Desafío 2
+	                </footer>
                 </div>
             </div>
         </div>

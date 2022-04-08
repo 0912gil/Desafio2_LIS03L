@@ -111,7 +111,7 @@ CREATE TABLE `productos` (
   `id_producto` varchar(20) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `descripcion` varchar(500) NOT NULL,
-  `imagen` varchar(100) NOT NULL,
+  `imagen` longblob NOT NULL,
   `id_categoria` varchar(100) NOT NULL,
   `precio` double NOT NULL,
   `existencias` int(11) NOT NULL,

@@ -48,7 +48,7 @@ class ProductoController{
         $prod->id_producto = $_REQUEST['id_producto'];
         $prod->nombre = $_REQUEST['nombre'];
         $prod->descripcion = $_REQUEST['descripcion'];
-        $prod->imagen = $_REQUEST['imagen'];
+        $prod->imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
         $prod->id_categoria = $_REQUEST['id_categoria'];
         $prod->precio = $_REQUEST['precio'];
         $prod->existencias = $_REQUEST['existencias'];

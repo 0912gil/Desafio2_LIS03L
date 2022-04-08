@@ -1,3 +1,4 @@
+<?php require_once 'core/validaciones.php'; ?>
 <img src="assets/img/logo.png">
 <h1 class="page-header">
     Nuevo Registro
@@ -26,10 +27,45 @@
     </div>
 
     <div class="form-group">
-        <label>Imagen en linea</label>
-        <input type="text" name="imagen" value="<?php echo $prod->imagen; ?>" class="form-control" placeholder="Ingrese el enlace del producto" data-validacion-tipo="requerido|min:240" />
-    </div>
+        <label>Imagen</label><br>
+       <!-- <input type="file" name="imagen" value="<?php echo $prod->imagen; ?>" class="form-control" data-validacion-tipo="requerido|min:240" />-->
+        <div class="col-sm-10">
+                                <?php
+                                if (isset($_POST['add'])) :
+                                    //Incluir librería de funciones
+                                    //Verificar si se han enviado uno o varios archivos
+                                    //valiéndonos de una expresión regular
+                                    $archivos = array();
+                                    if (!empty($_FILES['img']['name'][0])) :
+                                        $list = "<ol class=\"list-files\">\n";
+                                        foreach ($_FILES['img']['name'] as $i => $archivo) :
+                                            $archivos[$i] = $archivo;
+                                            //Invocar a la función que verificará mediante
+                                            //expresión regular si el archivo pasado como
+                                            //argumento es o no es imagen.
+                                            $list .= "<li>\n<a href=\"#\">" . $archivos[$i] . ComprobarImagen($archivos[$i]) . "</a>\n\t</li>\n";
+                                        endforeach;
+                                        $list .= "</ol>\n";
+                                        echo $list;
+                                    endif;
+                                //Obteniendo los datos del formulario
+                                else :
+                                ?>
+                                    <div class="row col s12">
+                                        <div class="file-field input-field col s8">
+                                            <div class="btn">
+                                                <input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
+                                                <input name="imagen" id="imagen" type="file" value="<?php echo $prod->imagen; ?>" multiple="multiple" />
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                <?php
+                                endif;
+                                ?>
+                            </div>
+    </div>
+                                <br>
     <div class="form-group">
         <label>Categoria</label>
         <input type="text" name="id_categoria" value="<?php echo $prod->id_categoria; ?>" class="form-control" placeholder="Ingrese la categoria del producto" data-validacion-tipo="requerido|min:240" />
