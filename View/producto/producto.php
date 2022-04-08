@@ -23,7 +23,7 @@
             <td><?php echo $r->id_producto; ?></td>
             <td><?php echo $r->nombre; ?></td>
             <td><?php echo $r->descripcion; ?></td>
-            <td><img src="data:img/jpg;base 64,<?php echo base64_encode($r->imagen); ?>" alt="" style="margin-right:30px;max-width:100%;"></td>
+            <td><img src="data:img/jpg;base 64,<?php echo base64_encode($r->imagen); ?>" alt="" height="50px" style="margin-right:30px;max-width:100%;"></td>
             <td><?php echo $r->precio; ?></td>
             <td><?php echo $r->existencias; ?></td>
             <td>

@@ -44,7 +44,6 @@ class ProductoController{
 
     public function Guardar(){
         $prod = new producto();
-
         $prod->id_producto = $_REQUEST['id_producto'];
         $prod->nombre = $_REQUEST['nombre'];
         $prod->descripcion = $_REQUEST['descripcion'];

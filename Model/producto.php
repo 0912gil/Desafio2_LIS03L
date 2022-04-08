@@ -1,4 +1,5 @@
 <?php
+require_once 'core/validaciones.php';
 class producto
 {
 	private $pdo;
