@@ -44,13 +44,42 @@ class ProductoController{
 
     public function Guardar(){
         $prod = new producto();
-        $prod->id_producto = $_REQUEST['id_producto'];
-        $prod->nombre = $_REQUEST['nombre'];
-        $prod->descripcion = $_REQUEST['descripcion'];
+        if(!isset($_REQUEST['id_producto'])||estaVacio($_REQUEST['id_producto'])){
+            array_push($errores, "Debes ingresar el codigo del editorial");
+            $prod->id_prooducto = $_REQUEST['id_producto'];
+        }
+        else if (!esCodigo($_REQUEST['id_producto'])){
+            array_push($errores, "El codigo del producto no cumple el formato PRODXXXXX");
+            $prod->id_producto = $_REQUEST['id_producto'];
+        }
+
+        if(!isset($_REQUEST['nombre'])||estaVacio($_REQUEST['nombre'])){
+            array_push($errores, "Debes ingresar el nombre del producto");
+            $prod->nombre = $_REQUEST['nombre'];
+        }
+        
+        if(!isset($_REQUEST['descripcion'])||estaVacio($_REQUEST['descripcion'])){
+            array_push($errores, "Debes ingresar la descripcion del producto");
+            $prod->descripcion = $_REQUEST['descripcion'];
+        }
+        
+        if (!ComprobarImagen(addslashes(file_get_contents($_FILES['imagen']['tmp_name'])))){
+            array_push($errores, "El codigo de la editorial no cumple el formato EDIXXX");
+            $prod->imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
+        }
+
         $prod->imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
         $prod->id_categoria = $_REQUEST['id_categoria'];
-        $prod->precio = $_REQUEST['precio'];
-        $prod->existencias = $_REQUEST['existencias'];
+
+        if(!isset($_REQUEST['precio'])||estaVacio($_REQUEST['precio'])){
+            array_push($errores, "Debes ingresar el precio del producto");
+            $prod->precio = $_REQUEST['precio'];
+        }
+
+        if(!isset($_REQUEST['existencias'])||estaVacio($_REQUEST['existencias'])){
+            array_push($errores, "Debes ingresar las existencias del producto");
+            $prod->existencias = $_REQUEST['existencias'];
+        }
 
         $this->model->Registrar($prod);
 
