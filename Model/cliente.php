@@ -6,8 +6,8 @@ class cliente
     public $correo;
     public $nombres;
     public $apellidos;
-    public $dir;
-    public $tel;
+    public $direccion;
+    public $telefono;
 	public $tarjeta;
 	public $contraseña;
 
@@ -86,10 +86,10 @@ class cliente
 				    array(
                         $data->nombres,
                         $data->apellidos,
-                        $data->tel,
-						$data->dir,
+                        $data->telefono,
+						$data->direccion,
 						$data->tarjeta,
-						$data->contraseña
+						$data->contraseña,
                         $data->correo,
 					)
 				);
@@ -103,8 +103,8 @@ class cliente
 	{
 		try
 		{
-		$sql = "INSERT INTO clientes (correo, nombres, apellidos, telefono, direccion, numero_tarjeta, estado, contraseña )
-		        VALUES (?, ?, ?, ?,?, ?, ?)";
+		$sql = "INSERT INTO clientes (correo, nombres, apellidos, telefono, direccion, numero_tarjeta, contraseña )
+		        VALUES (?, ?, ?, ? ,?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -112,8 +112,8 @@ class cliente
 					$data->correo,
                     $data->nombres,
                     $data->apellidos,
-                    $data->tel,
-                    $data->dir,
+                    $data->telefono,
+                    $data->direccion,
 					$data->tarjeta,
 					$data->contraseña
                 )

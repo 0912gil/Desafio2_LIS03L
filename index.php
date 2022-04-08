@@ -5,7 +5,7 @@
   //Para registrar productos es necesario iniciar los proveedores
   //de los mismos, por ello la variable controller para este
   //ejercicio se inicia con el 'proveedor'.
-  $controller = 'producto';
+  $controller = 'usuario';
 
   // Todo esta lógica hara el papel de un FrontController
   if(!isset($_REQUEST['c']))
@@ -29,7 +29,4 @@
 
     // Llama la accion
     call_user_func( array( $controller, $accion ) );
-  }?>
-  <a href="login.php" class="float">
-  <i class="fa fa-user my-float"></i>
-  </a>
+  }

@@ -16,6 +16,12 @@ class ProductoController{
         require_once 'view/footer.php';
     }
 
+    public function Usuario(){
+        require_once 'view/header.php';
+        require_once 'view/producto/producto-usuario.php';
+        require_once 'view/footer.php';
+    }
+
     public function Crud(){
         $prod = new producto();
 
